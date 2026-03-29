@@ -1,0 +1,16 @@
+{
+  "apps": [
+    {
+      "name": "KAI APP",
+      "platform": "Android",
+      "description": "Premium Recovery & Tool Suite.",
+      "icon": "https://img.icons8.com/color/512/android-os.png",
+      "features": ["Safety", "Premium UI", "Platinum"],
+      "downloads": {
+        "dev": "#",
+        "prod": "#",
+        "aab": "#"
+      }
+    }
+  ]
+}
