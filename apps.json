@@ -1,16 +1,17 @@
 {
   "apps": [
     {
-      "name": "KAI APP",
-      "platform": "Android",
-      "description": "Premium Recovery & Tool Suite.",
-      "icon": "https://img.icons8.com/color/512/android-os.png",
-      "features": ["Safety", "Premium UI", "Platinum"],
+      "id": "example-ios",
+      "name": "Example iOS App",
+      "icon": "https://raw.githubusercontent.com/user/hub/main/icon.png",
+      "platform": "iOS",
+      "description": "Ứng dụng ví dụ cho hệ điều hành iOS",
+      "features": ["OTA Install", "Platinum UI"],
       "downloads": {
-        "dev": "#",
-        "prod": "#",
-        "aab": "#"
+        "dev": "https://github.com/user/hub/releases/download/ios_dev/AppDev.plist",
+        "prod": "https://github.com/user/hub/releases/download/ios_prod/AppProd.plist"
       }
     }
   ]
 }
+
