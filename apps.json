@@ -1,3 +1,16 @@
 {
-  "apps": []
+  "apps": [
+    {
+      "id": "restorex",
+      "name": "Restorex",
+      "icon": "https://github.com/conmangangqua/kai_app/releases/download/prod/restorex_icon.png",
+      "platform": "Android",
+      "description": "",
+      "features": [],
+      "downloads": {
+        "dev": "https://github.com/conmangangqua/kai_app/releases/download/dev/restorex_dev.apk",
+        "prod": "https://github.com/conmangangqua/kai_app/releases/download/prod/restorex_prod.apk"
+      }
+    }
+  ]
 }
