@@ -1,6 +1,17 @@
 {
   "apps": [
     {
+      "id": "luminary_pdf",
+      "name": "Luminary Pdf",
+      "icon": "https://github.com/conmangangqua/kai_app/releases/download/dev/luminary_pdf_icon.png",
+      "platform": "Android",
+      "description": "",
+      "features": [],
+      "downloads": {
+        "dev": "https://github.com/conmangangqua/kai_app/releases/download/dev/luminary_pdf_dev.apk"
+      }
+    },
+    {
       "id": "restorex",
       "name": "Restorex",
       "icon": "https://github.com/conmangangqua/kai_app/releases/download/prod/restorex_icon.png",
