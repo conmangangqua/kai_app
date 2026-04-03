@@ -3,12 +3,13 @@
     {
       "id": "cyan_remote_tv",
       "name": "Cyan Remote Tv",
-      "icon": "https://github.com/conmangangqua/kai_app/releases/download/dev/cyan_remote_tv_icon.png",
+      "icon": "https://github.com/conmangangqua/kai_app/releases/download/prod/cyan_remote_tv_icon.png",
       "platform": "Android",
       "description": "",
       "features": [],
       "downloads": {
-        "dev": "https://github.com/conmangangqua/kai_app/releases/download/dev/cyan_remote_tv_dev.apk"
+        "dev": "https://github.com/conmangangqua/kai_app/releases/download/dev/cyan_remote_tv_dev.apk",
+        "prod": "https://github.com/conmangangqua/kai_app/releases/download/prod/cyan_remote_tv_prod.apk"
       }
     },
     {
