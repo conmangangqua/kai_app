@@ -305,24 +305,31 @@
             .map(f => `<span class="feature-tag">${f}</span>`)
             .join("");
           
-          const isIOS = (app.platform || "").toLowerCase().includes("ios");
+          const platformStr = app.platform || "Android";
+          const platformClass = platformStr.toLowerCase().includes("ios") ? "ios" : "android";
+          const isIOS = platformClass === "ios";
           const iconSrc = app.icon || "";
-          
-          const devUrl = app.downloads?.dev || "";
-          const prodUrl = app.downloads?.prod || "";
+
+          const formatUrl = (url) => {
+            if (!url) return "";
+            if (isIOS) {
+               return "itms-services://?action=download-manifest&url=" + encodeURIComponent(url);
+            }
+            return url;
+          };
           
           const html = `
             <div class="app-card">
               <div class="app-icon">
                 ${iconSrc ? `<img src="${iconSrc}" alt="${app.name || ""}" onerror="this.style.display='none'">` : '<div style="width:100%;height:100%;background:linear-gradient(135deg,#667eea,#764ba2);"></div>'}
               </div>
-              <span class="platform-badge ${isIOS ? 'ios' : 'android'}">${app.platform || "Android"}</span>
+              <span class="platform-badge ${platformClass}">${platformStr}</span>
               <h2 class="app-title">${app.name || ""}</h2>
               <p class="app-description">${app.description || ""}</p>
               ${features ? `<div class="app-features">${features}</div>` : ""}
               <div class="button-group">
-                ${devUrl ? `<a class="install-button dev" href="${isIOS ? 'itms-services://?action=download-manifest&url=' + devUrl : devUrl}">🔧 Dev</a>` : ""}
-                ${prodUrl ? `<a class="install-button live" href="${isIOS ? 'itms-services://?action=download-manifest&url=' + prodUrl : prodUrl}">🚀 Live</a>` : ""}
+                ${app.downloads?.dev ? `<a class="install-button dev" href="${formatUrl(app.downloads.dev)}">🔧 Dev</a>` : ""}
+                ${app.downloads?.prod ? `<a class="install-button live" href="${formatUrl(app.downloads.prod)}">🚀 Live</a>` : ""}
                 ${app.downloads?.aab ? `<a class="install-button aab" href="${app.downloads.aab}">📦 AAB</a>` : ""}
               </div>
             </div>
