@@ -54,15 +54,15 @@
 </head>
 <body>
   <header><h1>Kai Hub</h1></header>
-  <section class="search-section"><div class="search-wrapper"><input type="text" id="searchInput" placeholder="Tìm kiếm tối giản..." oninput="filterApps()"></div></section>
+  <section class="search-section"><div class="search-wrapper"><input type="text" id="searchInput" placeholder="Search for apps..." oninput="filterApps()"></div></section>
   <main><div id="appContainer"></div></main>
-  <footer><p>KAI ZEN DISTRIBUTION • PLATINUM 2026</p></footer>
+  <footer><p>KAI HUB • Powered by Platinum Engine.</p></footer>
   <script>
     let allApps = [];
     const formatUrl = (url, isIOS) => url && isIOS ? "itms-services://?action=download-manifest&url=" + encodeURIComponent(url) : url;
     const renderApps = (apps) => {
       const container = document.getElementById("appContainer"); container.innerHTML = "";
-      if (apps.length === 0) { container.innerHTML = '<div style="grid-column: 1/-1; text-align: center; padding: 100px; color: var(--text-muted); font-weight: 500;">Không có dữ liệu.</div>'; return; }
+      if (apps.length === 0) { container.innerHTML = '<div style="grid-column: 1/-1; text-align: center; padding: 100px; color: var(--text-muted); font-weight: 500;">No apps found matching your search.</div>'; return; }
       apps.forEach((app, index) => {
         const isIOS = (app.platform || "").toLowerCase().includes("ios");
         const devUrl = formatUrl(app.downloads?.dev, isIOS);
@@ -71,7 +71,7 @@
         const card = document.createElement("article"); card.className = "app-card"; card.style.animationDelay = `${index * 0.05}s`;
         card.innerHTML = `<div class="app-icon-box"><img src="${app.icon || 'https://via.placeholder.com/150'}" class="app-icon" alt="${app.name}" onerror="this.src='https://ui-avatars.com/api/?name=${encodeURIComponent(app.name)}&background=475569&color=fff'"></div>
           <span class="badge ${isIOS ? 'ios' : 'android'}">${app.platform || 'Android'}</span>
-          <h2 class="app-title">${app.name}</h2><p class="app-desc">${app.description || 'Ứng dụng thuần chất Platinum.'}</p>
+          <h2 class="app-title">${app.name}</h2><p class="app-desc">${app.description || ''}</p>
           <div class="btn-grid">${devUrl ? `<a href="${devUrl}" class="btn btn-dev">DEV VERSION</a>` : ""} ${prodUrl ? `<a href="${prodUrl}" class="btn btn-live">LIVE VERSION</a>` : ""} ${aabUrl ? `<a href="${aabUrl}" class="btn btn-full">DOWNLOAD AAB</a>` : ""}</div>`;
         container.appendChild(card);
       });
@@ -80,7 +80,7 @@
       const query = document.getElementById("searchInput").value.toLowerCase();
       renderApps(allApps.filter(app => app.name.toLowerCase().includes(query) || (app.description && app.description.toLowerCase().includes(query))));
     };
-    fetch("apps.json").then(res => res.json()).then(data => { allApps = data.apps || []; renderApps(allApps); }).catch(err => { document.getElementById("appContainer").innerHTML = '<div style="color: #ef4444; font-weight: 500; text-align: center; grid-column: 1/-1;">Lỗi kết nối.</div>'; });
+    fetch("apps.json").then(res => res.json()).then(data => { allApps = data.apps || []; renderApps(allApps); }).catch(err => { document.getElementById("appContainer").innerHTML = '<div style="color: #ef4444; font-weight: 500; text-align: center; grid-column: 1/-1;">Connection error. Please try again later.</div>'; });
   </script>
 </body>
 </html>
