@@ -13,6 +13,17 @@
       }
     },
     {
+      "id": "geosnap",
+      "name": "Geosnap",
+      "icon": "https://github.com/conmangangqua/kai_app/releases/download/dev/geosnap_icon.png",
+      "platform": "Android",
+      "description": "",
+      "features": [],
+      "downloads": {
+        "dev": "https://github.com/conmangangqua/kai_app/releases/download/dev/geosnap_dev.apk"
+      }
+    },
+    {
       "id": "luminary_pdf",
       "name": "Luminary Pdf",
       "icon": "https://github.com/conmangangqua/kai_app/releases/download/prod/luminary_pdf_icon.png",
